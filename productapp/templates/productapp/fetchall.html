@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}All of the products{% endblock title %}
+
+{% block body %}
+
+<a href="{% url 'Add' %}"> Add Product</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+    {% for product in products  %}
+    <tr>
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock body %}

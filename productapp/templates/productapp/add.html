@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Product{% endblock title %}
+
+{% block body %}
+ {{ message  }}
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="productname"
+    placeholder="Enter Product name"/>
+    <input type="number" name="productprice"
+     placeholder="Enter Product Price"/>
+    <input type="submit" 
+    value="Add Product">
+</form>
+<a href="{% url 'Fetch' %}"> View All</a>
+{% endblock body %}
