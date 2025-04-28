@@ -3,16 +3,36 @@
 {% block title %}All of the products{% endblock title %}
 
 {% block body %}
-
-<a href="{% url 'Add' %}"> Add Product</a>
+<style>
+    table, th, td{
+        border: 1px solid #000;
+        border-collapse: collapse;
+    }
+    th, td{
+        padding: 10px;
+    }
+</style>
+<a href="{% url 'Addd' %}"> Add Product</a>
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" value="{{kword}}" name="kword" placeholder="Enter Keyword"/>
+    <input type="submit" value-"Search"/>
+</form>
 <table>
     <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
+        <th>Action</th>
+        <th><a href="{% url 'Fetch' %}?order_by=id">ID</a></th>
+        <th><a href="{% url 'Fetch' %}?order_by=name">Name</a></th>
+        <th><a href="{% url 'Fetch' %}?order_by=price">Price</a></th>
+
     </tr>
-    {% for product in products  %}
+    {% for product in mgabaligya  %}
     <tr>
+        <td>
+            <a href="{% url 'Update' product.id %}">Edit </a> |
+           <a href="{% url 'SoftDelete' product.id %}"> Soft Delete </a> |
+           <a href="{% url 'HardDelete' product.id %}"> Hard Delete </a>
+        </td>
         <td>{{product.id}}</td>
         <td>{{product.name}}</td>
         <td>{{product.price}}</td>

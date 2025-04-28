@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Register Savings Account{% endblock title %}
+
+{% block body %}
+<a href="{% url "bahay" %}">Home</a>
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="pangalan" placeholder="Enter First Name">
+    <input type="text" name="apelyido" placeholder="Enter Last Name">
+    <input type="submit" value="Register">
+</form>
+
+
+
+{% endblock body %}

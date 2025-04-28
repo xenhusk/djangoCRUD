@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block title %}Savings Accounts{% endblock title %}
+{% block body %}
+<style>
+    table{
+        border-collapse: collapse;
+    }
+    th, td, tr{
+        border:1px solid #000;
+    }  
+</style>
+<a href="{% url 'rehistro' %}">Register</a>
+<table>
+    <tr>
+        <th>Action</th>
+        <th> Account No.</th>
+        <th> Name </th>
+        <th> Available Balance</th>
+    </tr>
+{% for ledger in ledgers %}
+<tr>
+
+    {% comment %} // http://localhost/savings/cashin?account_no=????? {% endcomment %}
+    <td><a href="{% url "paload" %}?account_no={{ledger.account_no.savings_account}}">Cashin</a></td>
+    <td>{{ledger.account_no.savings_account}}</td>
+    <td>{{ledger.account_no.fname}} {{ledger.account_no.lname}}</td>
+    <td>{{ledger.available}}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+
+
+{% endblock body %}

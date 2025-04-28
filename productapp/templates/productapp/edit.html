@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Existing Product{% endblock title %}
+
+{% block body %}
+ {{ message  }}
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" value="{{baligya.name}}" name="productname"
+    placeholder="Enter New Name"/>
+    <input type="number" value="{{baligya.price}}" name="productprice"
+     placeholder="Enter New  Price"/>
+    <input type="submit" 
+    value="Save Product">
+</form>
+<a href="{% url 'Fetch' %}"> View All</a>
+{% endblock body %}
