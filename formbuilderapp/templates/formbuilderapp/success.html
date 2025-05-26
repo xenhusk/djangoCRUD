@@ -1,0 +1,14 @@
+{% extends "base.html" %}  
+{% block title %}Form Submission Success{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Form
+    Submission Successful</h1>
+    <p><span> Name: </span>{{ form.first_name }} {{ form.last_name }}</p>
+    <p><span>Email: </span>{{ form.email }}</p>
+    <p><span>Age: </span>{{ form.age }}</p>
+    <p class="alert alert-success">Thank you for submitting the form!</p>
+    <p class="mb-4">Your data has been successfully saved.</p>
+    <a href="{% url 'formbuilderapp:user_form' %}" class="btn btn-primary">Go Back to Form</a>
+</div>
+{% endblock body %}
