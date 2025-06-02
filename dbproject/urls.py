@@ -22,4 +22,5 @@ urlpatterns = [
     path('savings/', include('savingsapp.urls')),
     path('forms/', include('formbuilderapp.urls',  namespace='formbuilderapp')),
     path('admin/', admin.site.urls),
+    path('csv/', include('csvapp.urls', namespace='csvapp')),
 ]

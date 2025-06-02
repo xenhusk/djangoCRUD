@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'productapp',
     'savingsapp',
     'formbuilderapp',
+    'csvapp',
 ]
 
 MIDDLEWARE = [
